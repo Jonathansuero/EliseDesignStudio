@@ -1,0 +1,40 @@
+ELISE DESIGN STUDIO — SITIO WEB (versión 8)
+===========================================
+Subir a Hostinger: sube TODO el contenido de esta carpeta (no la carpeta en sí) a public_html
+con el Administrador de archivos. index.html es la página de inicio.
+Si ya tienes la versión 7 en Hostinger, basta con subir los archivos de este paquete y
+reemplazar los existentes (las fotos de img/ que ya están en el servidor no cambian).
+
+Páginas: index, servicios, proyectos, proyecto-118, proyecto-119,
+proyecto-120, estudio, contacto.
+
+Novedades de la versión 8:
+  - El sitio abre SIEMPRE en inglés. Cada página tiene su versión en español en la carpeta es/
+    (ej. es/servicios.html). El botón ES lleva a esa versión y EN regresa al inglés.
+  - Se quitó el brochure (imagen y PDF) del sitio. En el servidor puedes borrar img/brochure*.jpg y
+    assets/brochure-*.pdf: ya ninguna página los usa.
+  - ZIP de la oficina (33301) resaltado: en el pie de página (nuevo bloque "Office / Oficina"),
+    en la tarjeta de Oficina en Contacto (ZIP en grande), en "Dónde trabajamos" y en el menú móvil.
+    También aparece en el título y la descripción para Google de Inicio y Contacto.
+  - Contacto: el teléfono se formatea solo mientras se escribe, (954) 270-1712 o +1 (954) 270-1712;
+    los números de otros países empiezan con + y se aceptan tal cual. Nuevo campo "ZIP code / Código postal (ZIP)"
+    junto a Estado y Ciudad: 5 dígitos (33301) o ZIP+4 (33301-1234); se incluye en el mensaje que llega por correo.
+  - Sección de reseñas en Inicio (inglés y español). Agrega reseñas reales de clientes en
+    build/data.py > REVIEWS y el enlace de reseñas de Google en REVIEW_URL; luego python3 build/build.py.
+  - Ícono de la pestaña (favicon) con el logo de Elise Design Studio en blanco sobre marrón: favicon.ico,
+    img/favicon-32.png, img/favicon-96.png, img/apple-touch-icon.png, img/icon-192.png, img/icon-512.png
+    y site.webmanifest. Lo usan el navegador, Google, el iPhone y Android.
+  - Para buscadores: títulos y descripciones escritos para atraer clientes, en inglés y español,
+    .htaccess (HTTPS, sin www, velocidad), 404.html y sitemap.xml con las 16 páginas.
+    Ver MANUAL-BUSCADORES.txt. Recuerda subir también la carpeta es/ y el archivo .htaccess.
+
+Datos que debes completar en assets/app.js (bloque CONFIG, arriba del todo):
+  whatsapp     -> tu número con código de país, sin + ni espacios (ej. 19542701712)
+  bookingUrl   -> enlace de Calendly / Google Calendar para agendar en línea
+  formEndpoint -> enlace de Formspree (u otro) para recibir el formulario directo en tu correo.
+                  Si lo dejas vacío, el formulario abre el correo del visitante con el mensaje listo.
+Mientras estén vacíos, esos botones se ocultan solos.
+
+Editar textos, ciudades, servicios, renders, proyectos, dirección o ZIP: modifica build/data.py y ejecuta
+  python3 build/build.py
+(regenera todas las páginas en inglés y las traducciones de assets/i18n.js).
