@@ -1,0 +1,81 @@
+MANUAL PARA APARECER EN BUSCADORES (GOOGLE Y BING)
+Elise Design Studio — sitio web versión 8
+==================================================
+
+--------------------------------------------------
+1. LO QUE YA TRAE LA PÁGINA (versión 8)
+--------------------------------------------------
+  - Dos versiones reales de cada página:
+      inglés  -> https://elisedesign-studio.com/            (principal)
+      español -> https://elisedesign-studio.com/es/
+    Google muestra a cada persona el resultado en su idioma (etiquetas hreflang):
+    quien busca "interior designer Fort Lauderdale" ve el texto en inglés y quien
+    busca "diseñadora de interiores en Fort Lauderdale" ve el texto en español.
+  - Títulos y descripciones para Google escritos según lo que el cliente necesita
+    (remodelar, construir, ver ideas, agendar). Están en build/data.py, bloque SEO.
+  - Datos estructurados (schema.org) en ambos idiomas: negocio local con dirección,
+    ZIP 33301, teléfono, servicios y ciudades; preguntas frecuentes; ruta de
+    navegación en los proyectos; descripción de cada página.
+  - sitemap.xml con las 16 páginas (8 en inglés + 8 en español).
+  - robots.txt, página 404 propia y archivo .htaccess (HTTPS obligatorio, una sola
+    dirección sin www, compresión y caché para que cargue más rápido).
+  - Los enlaces antiguos con ?lang=es llevan solos a la página en español.
+
+--------------------------------------------------
+2. SUBIR LA VERSIÓN 8 A HOSTINGER
+--------------------------------------------------
+  1. Hostinger > Sitios web > Administrar > Administrador de archivos > public_html.
+  2. Sube el .zip de la versión 8 y elige "Extraer" aquí mismo (reemplaza archivos).
+  3. Confirma que existen: la carpeta es/, el archivo .htaccess (activa "Mostrar
+     archivos ocultos") y 404.html.
+  4. No subas la carpeta build/ (es solo para editar). Si se sube, el .htaccess la
+     bloquea.
+  5. Hostinger > Seguridad > SSL: debe estar "Activo".
+  6. Prueba en el navegador:
+       https://elisedesign-studio.com/          (inglés)
+       https://elisedesign-studio.com/es/       (español)
+       https://elisedesign-studio.com/sitemap.xml
+       http://www.elisedesign-studio.com        (debe llevarte a https sin www)
+
+--------------------------------------------------
+3. GOOGLE SEARCH CONSOLE
+--------------------------------------------------
+  Ver el paso a paso en el mensaje del chat; resumen:
+  [ ] Agregar propiedad tipo "Dominio": elisedesign-studio.com
+  [ ] Copiar el registro TXT y pegarlo en Hostinger > Dominios > DNS (Tipo TXT, Nombre @)
+  [ ] Verificar
+  [ ] Sitemaps > escribir sitemap.xml > Enviar
+  [ ] Inspección de URLs > Solicitar indexación de / , /es/ , /servicios.html ,
+      /contacto.html , /es/servicios.html , /es/contacto.html
+  [ ] Revisar "Páginas" y "Rendimiento" una vez por semana
+
+--------------------------------------------------
+4. LO QUE MÁS AYUDA A SALIR PRIMERO EN BÚSQUEDAS LOCALES
+--------------------------------------------------
+  1. Perfil de Empresa en Google (google.com/business). Categoría principal:
+     Interior designer / Diseñador de interiores. Mismo nombre, dirección
+     (101 NE 3rd Ave, Ste 1500, Fort Lauderdale, FL 33301), teléfono y web que la página.
+  2. Reseñas: pide a cada cliente una reseña en Google mencionando el servicio y la
+     ciudad ("remodelación de cocina en Weston"). Responde todas.
+  3. Fotos nuevas en el Perfil de Empresa y en la página cada mes.
+  4. Mismos datos en Houzz, Instagram, Facebook, Yelp, Nextdoor y BBB.
+  5. Proyectos nuevos con ciudad en el texto (agrégalos en build/data.py).
+  Nadie puede garantizar el primer lugar en Google; estos pasos son los que más pesan.
+
+--------------------------------------------------
+5. BING (Bing, Yahoo, DuckDuckGo y Copilot)
+--------------------------------------------------
+  bing.com/webmasters > "Importar desde Google Search Console".
+
+--------------------------------------------------
+6. COMPROBAR
+--------------------------------------------------
+  - search.google.com/test/rich-results  (debe reconocer Negocio local y Preguntas frecuentes)
+  - pagespeed.web.dev                     (velocidad en celular)
+
+--------------------------------------------------
+7. CAMBIAR TÍTULOS O TEXTOS
+--------------------------------------------------
+  Edita build/data.py (bloque SEO para lo que sale en Google) y ejecuta
+  python3 build/build.py. Se regeneran las páginas en inglés y en español y el sitemap.
+  Luego vuelve a subir y reenvía sitemap.xml en Search Console.
